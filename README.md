@@ -21,4 +21,11 @@ conf = {
 
 # http://api.map.baidu.com/lbsapi/getpoint/index.html
 loc = (x, x)  # 在以上链接获取您的经纬度信息，直接复制
+
+modify = {
+    "ywjcqzbl": "低风险", "ywjchblj": "无", "xjzdywqzbl": "无", "twsfzc": "是",
+    "ywytdzz": "无", "beizhu": "无"
+}   
+# 此为默认值，如有修改需求，请自己导入并修改
+# ad = AutoDk(config=conf, location=loc, modify=modify)
 ```
