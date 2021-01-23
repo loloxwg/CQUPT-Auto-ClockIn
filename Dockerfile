@@ -11,7 +11,7 @@ RUN apt-get update && \
 COPY dk-cron /etc/cron.d/dk-cron
 
 RUN pip install requests \
-    && chmod 0644 /etc/cron.d/dk-cron \
+    && chmod +x /etc/cron.d/dk-cron \
     && crontab /etc/cron.d/dk-cron \
     && touch /var/log/cron.log
 
