@@ -35,6 +35,8 @@ class AutoDk:
     geo = {}
 
     def __init__(self, config=None, location=None, modify=None):
+        print(
+            f'[+] Running time: {time.asctime(time.localtime(time.time()))}')
         print('[+] Initializing script.')
         if modify is None:
             modify = {}
