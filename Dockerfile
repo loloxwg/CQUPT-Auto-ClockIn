@@ -4,14 +4,15 @@ COPY mrdk.py /app/mrdk.py
 COPY priv.py /app/priv.py
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    cron && \
+    apt-get install -y --no-install-recommends cron && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-RUN touch /etc/cron.d/crontab \
-    && echo "0 0 6 * * ? cd /app && python mrdk.py" >> /etc/cron.d/crontab
+COPY dk-cron /etc/cron.d/dk-cron
 
-RUN pip install requests
+RUN pip install requests \
+    && chmod 0644 /etc/cron.d/dk-cron \
+    && crontab /etc/cron.d/dk-cron \
+    && touch /var/log/cron.log
 
-CMD cd /app && python mrdk.py && cron && crontab /etc/cron.d/crontab && tail -f /dev/null
+CMD cd /app && python mrdk.py && cron && tail -f /var/log/cron.log
