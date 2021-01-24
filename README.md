@@ -35,8 +35,8 @@ modify = {
 之后，在你的服务器上执行
 
 ```bash
-docker build -t mrdk:v1 .
-docker run --name mrdk -d mrdk:v1
+docker build -t mrdk:v2 .
+docker run --rm -d --name mrdk -it mrdk:v2
 ```
 
 记得关注日志。
