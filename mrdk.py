@@ -36,7 +36,7 @@ class AutoDk:
 
     def __init__(self, config=None, location=None, modify=None):
         print(
-            f'[+] Running time: {time.asctime(time.localtime(time.time()))}')
+            f'[+] Starting time: {time.asctime(time.localtime(time.time()))}')
         print('[+] Initializing script.')
         if modify is None:
             modify = {}
@@ -48,6 +48,9 @@ class AutoDk:
         self.loc = location
         self.conf = config
         self.modify = modify
+        self.count = 0
+
+        print('[+] Configuration loaded. Waiting for time.')
 
     def check(self):
         data = {
@@ -81,6 +84,10 @@ class AutoDk:
         return self.geo  # 供查询
 
     def run(self):
+        self.count += 1
+        print(f'\n[+] Cycling: {self.count}')
+        print(
+            f'[+] Checking time: {time.asctime(time.localtime(time.time()))}')
         flag = self.check()
         if flag == '0':
             print('[+] Loading configurations...')
