@@ -1,0 +1,8 @@
+version: "3"
+services:
+  clockin:
+    build: .
+    volumes:
+      - ./:/work
+    working_dir: /work
+    command: python schedule.py

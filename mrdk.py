@@ -2,7 +2,7 @@ import time
 import requests
 import base64
 import json
-from priv import conf, loc
+from priv import conf, loc, notice
 
 
 # 坐标来这查
@@ -100,11 +100,12 @@ class AutoDk:
             data.update(self.geo)
 
             # start data
-            print(data)
+            # print(data)
             print('[+] Starting DaKa...')
 
             res = requests.post(self.app['run'], data=dump(data))
-            print(res.text)
+            notice(data, res.text)
+
         else:
             print(f'[-] You have already clocked in {flag} time(s). Exit.')
 

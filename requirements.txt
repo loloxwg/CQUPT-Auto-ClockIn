@@ -1,2 +1,2 @@
-requests~=2.23.0
-APScheduler~=3.7.0
+requests
+APScheduler
