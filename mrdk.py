@@ -85,9 +85,8 @@ class AutoDk:
 
     def run(self):
         self.count += 1
-        print(f'\n[+] Cycling: {self.count}')
         print(
-            f'[+] Checking time: {time.asctime(time.localtime(time.time()))}')
+            f'\n[+] Checking time: {time.asctime(time.localtime(time.time()))}')
         flag = self.check()
         if flag == '0':
             print('[+] Loading configurations...')
@@ -107,6 +106,7 @@ class AutoDk:
             notice(data, res.text)
 
         else:
+            notice(None, flag)
             print(f'[-] You have already clocked in {flag} time(s). Exit.')
 
         print('[+] Done.')

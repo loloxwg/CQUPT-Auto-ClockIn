@@ -6,5 +6,6 @@ if __name__ == '__main__':
     scheduler = BlockingScheduler()
     print('[+] Start scheduler on every 6:00 AM.')
     ad = AutoDk(config=conf, location=loc)
+    ad.run()
     scheduler.add_job(ad.run, 'cron', hour=6)
     scheduler.start()
