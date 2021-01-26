@@ -5,4 +5,6 @@ services:
     volumes:
       - ./:/work
     working_dir: /work
+    stdin_open: true
+    tty: true
     command: python scheduler.py
