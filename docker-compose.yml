@@ -5,4 +5,4 @@ services:
     volumes:
       - ./:/work
     working_dir: /work
-    command: python schedule.py
+    command: python scheduler.py
