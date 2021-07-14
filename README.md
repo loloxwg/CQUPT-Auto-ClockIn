@@ -23,7 +23,8 @@ conf = {
 loc = (x, x)  # 在以上链接获取您的经纬度信息，直接复制
 
 # 通知处理函数，用于打卡信息推送
-# 以下是接入 [plugins.saaya.notice](https://github.com/jerrita/saaya/blob/master/plugins/saaya/notice.py) 的一个示例
+# 以下是接入 plugins.saaya.notice 的一个示例
+
 def notice(data, txt):
     url = 'http://bot.example.com/notice'
     print('[+] Receive data:', txt)
