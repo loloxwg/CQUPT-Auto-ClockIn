@@ -27,9 +27,9 @@ def get_key():
 
 class AutoDk:
     app = {
-        'check': 'https://we.cqu.pt/api/mrdk/get_mrdk_flag.php',
+        'check': 'https://we.cqupt.edu.cn/api/mrdk/get_mrdk_flag.php',
         'map': 'https://apis.map.qq.com/ws/geocoder/v1?location={1}%2C{0}&key=7IMBZ-XWMWW-D4FR5-R3NAG-G7A7S-FMBFN',
-        'run': 'https://we.cqu.pt/api/mrdk/post_mrdk_info.php'
+        'run': 'https://we.cqupt.edu.cn/api/mrdk/post_mrdk_info.php'
     }
 
     geo = {}
