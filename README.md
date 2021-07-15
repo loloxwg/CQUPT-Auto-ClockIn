@@ -10,6 +10,8 @@
 你需要创建一个 priv.py，自行填入以下信息
 
 ```python
+import requests
+
 conf = {
     'xh': xxx,
     'name': 'xxx',
