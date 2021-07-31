@@ -22,7 +22,7 @@ def get_key():
     u = ["89KC", "pzTS", "wgte", "29_3", "GpdG", "FDYl", "vsE9", "SPJk", "_buC", "GPHN", "OKax", "_Kk4", "hYxa",
          "1BC5", "oBk_", "JgUW", "0CPR", "jlEh", "gBGg", "frS6", "4ads", "Iwfk", "TCgR", "wbjP"]
     lt = time.localtime(time.time())
-    return r[lt.tm_mday] + u[lt.tm_hour]
+    return r[lt.tm_mday - 1] + u[lt.tm_hour - 1]
 
 
 class AutoDk:
