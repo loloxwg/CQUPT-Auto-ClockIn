@@ -68,8 +68,93 @@ class AutoDk:
             exit('[-] Flag Check Error')
 
     def get_geo(self):
-        res = requests.get(self.app['map'].format(*self.loc))
-        res = json.loads(res.text)['result']
+        #res = requests.get(self.app['map'].format(*self.loc))
+        #没有网，我们就只能回家了
+        #拜托，我阿妈超凶的
+        res = """
+{
+    "status": 0,
+    "message": "query ok",
+    "request_id": "065dad90-3c66-11ec-848d-525400dcfc96",
+    "result": {
+        "location": {
+            "lat": 29.537429,
+            "lng": 106.614951
+        },
+        "address": "重庆市南岸区黄明路",
+        "formatted_addresses": {
+            "recommend": "重庆邮电大学东北",
+            "rough": "重庆邮电大学东北"
+        },
+        "address_component": {
+            "nation": "中国",
+            "province": "重庆市",
+            "city": "重庆市",
+            "district": "南岸区",
+            "street": "黄明路",
+            "street_number": "黄明路"
+        },
+        "ad_info": {
+            "nation_code": "156",
+            "adcode": "500108",
+            "city_code": "156500000",
+            "name": "中国,重庆市,重庆市,南岸区",
+            "location": {
+                "lat": 29.5,
+                "lng": 106.745132
+            },
+            "nation": "中国",
+            "province": "重庆市",
+            "city": "重庆市",
+            "district": "南岸区"
+        },
+        "address_reference": {
+            "street_number": {
+                "id": "",
+                "title": "",
+                "location": {
+                    "lat": 29.534351,
+                    "lng": 106.72261
+                },
+                "_distance": 349.8,
+                "_dir_desc": "东"
+            },
+            "town": {
+                "id": "500108007",
+                "title": "南山街道",
+                "location": {
+                    "lat": 29.58695,
+                    "lng": 106.642792
+                },
+                "_distance": 0,
+                "_dir_desc": "内"
+            },
+            "street": {
+                "id": "5663199003245115351",
+                "title": "黄明路",
+                "location": {
+                    "lat": 29.534351,
+                    "lng": 106.72261
+                },
+                "_distance": 349.8,
+                "_dir_desc": "东"
+            },
+            "landmark_l2": {
+                "id": "2695987747850306161",
+                "title": "重庆邮电大学",
+                "location": {
+                    "lat": 29.532326,
+                    "lng": 106.607956
+                },
+                "_distance": 357.4,
+                "_dir_desc": "东北"
+            }
+        }
+    }
+}
+"""
+        res = json.loads(res)['result']
+        #我才不要回家（指手动打卡）
         t = res['address_component']
         a, b, c, d, e = (
             t['nation'], t['province'], t['city'], t['district'], t['street']
