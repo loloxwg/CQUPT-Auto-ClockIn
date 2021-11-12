@@ -67,11 +67,14 @@ class AutoDk:
         else:
             exit('[-] Flag Check Error')
 
-    def get_geo(self):
-        #res = requests.get(self.app['map'].format(*self.loc))
+    def get_geo(self, at_school: bool = True):
+        if not at_school:
+            res = requests.get(self.app['map'].format(*self.loc))
         #没有网，我们就只能回家了
         #拜托，我阿妈超凶的
-        res = """
+        # School location: 106.614827,29.540015
+        else:
+            res = """
 {
     "status": 0,
     "message": "query ok",
