@@ -1,0 +1,11 @@
+kind: pipeline
+name: clockin
+type: docker
+
+steps:
+  - name: clockin
+    image: python:3-alpine
+    commands:
+      - python -m pip install -r requirements.txt
+      - python mrdk.py
+      
