@@ -3,7 +3,7 @@ from mrdk import AutoDk
 from priv import conf, loc
 
 if __name__ == '__main__':
-    scheduler = BlockingScheduler()
+    scheduler = BlockingScheduler(timezone='Asia/Shanghai')
     print('[+] Start scheduler on every 6:00 AM.')
     ad = AutoDk(config=conf, location=loc)
     ad.run()

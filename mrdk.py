@@ -67,11 +67,11 @@ class AutoDk:
         else:
             exit('[-] Flag Check Error')
 
-    def get_geo(self, at_school: bool = True):
+    def get_geo(self, at_school: bool = False):
         if not at_school:
             res = requests.get(self.app['map'].format(*self.loc))
-        #没有网，我们就只能回家了
-        #拜托，我阿妈超凶的
+        # 没有网，我们就只能回家了
+        # 拜托，我阿妈超凶的
         # School location: 106.614827,29.540015
         else:
             res = """
@@ -156,8 +156,8 @@ class AutoDk:
     }
 }
 """
-        res = json.loads(res)['result']
-        #我才不要回家（指手动打卡）
+        res = json.loads(res.text)['result']
+        # 我才不要回家（指手动打卡）
         t = res['address_component']
         a, b, c, d, e = (
             t['nation'], t['province'], t['city'], t['district'], t['street']
@@ -191,7 +191,10 @@ class AutoDk:
             print('[+] Starting DaKa...')
 
             res = requests.post(self.app['run'], data=dump(data))
-            notice(data, res.text)
+            if res.status_code == 200:
+                notice(data, res.text + "没问题，打卡成功😊")
+            else:
+                notice(data, res.text + "今年毕业证要少印一张了🐶")
 
         else:
             notice(None, flag)
